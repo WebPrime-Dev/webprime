@@ -187,7 +187,7 @@
                         <span class="desc"># Nouveau projet · devis gratuit</span>
                         <span class="arrow">→</span>
                     </button>
-                    <button class="cmd" data-go="https://webprime-dev.fr">
+                    <button class="cmd" data-go="https://daelia-digital.fr">
                         <span class="key">discover --offers</span>
                         <span class="desc"># Voir nos offres &amp; tarifs</span>
                         <span class="arrow">→</span>
@@ -305,7 +305,7 @@
             if (!v) return;
             if (v.indexOf('start') === 0 || v.indexOf('new') === 0)         return go('contact.html');
             if (v.indexOf('offer') === 0 || v.indexOf('discover') === 0 ||
-                v.indexOf('tarif') === 0 || v.indexOf('prix') === 0)        return go('https://webprime-dev.fr');
+                v.indexOf('tarif') === 0 || v.indexOf('prix') === 0)        return go('https://daelia-digital.fr');
             if (v === 'help' || v === 'aide' || v === '?')
                 return run('help', 'start = devis · offers = nos offres', function () {}, true);
             run(v, 'commande inconnue — essayez : start, offers, client, help', function () {}, true);
