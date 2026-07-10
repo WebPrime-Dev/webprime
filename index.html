@@ -3,20 +3,584 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="0; url=https://daelia-digital.fr/">
-    <link rel="canonical" href="https://daelia-digital.fr/">
-    <meta name="robots" content="noindex, follow">
-    <link rel="icon" href="favicon.ico">
-    <title>WebPrime — Redirection</title>
-    <script>window.location.replace("https://daelia-digital.fr/");</script>
+    <title>WebPrime — Référencement en marque blanche pour agences</title>
+    <meta name="description" content="WebPrime référence les sites de vos clients en marque blanche. Le partenaire SEO invisible des agences web, studios de création et développeurs. Vous créez, nous référençons.">
+    <link rel="canonical" href="https://webprime.fr/"/>
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="WebPrime — Référencement en marque blanche pour agences">
+    <meta property="og:description" content="Le partenaire SEO invisible des agences web, studios et développeurs. Vous créez, nous référençons.">
+    <meta property="og:url" content="https://webprime.fr/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" type="image/png" sizes="192x192" href="./logo/icon-192x192.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        html, body { height: 100%; margin: 0; background: #0b0b0d; color: #e6e6e6;
-            font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
-            display: flex; align-items: center; justify-content: center; }
-        a { color: #ffb156; }
+        /* ── Header ── */
+        .ent-header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(10,10,10,0.82);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-dark);
+        }
+        .ent-header .container {
+            display: flex; align-items: center; justify-content: space-between;
+            padding-top: 14px; padding-bottom: 14px;
+        }
+        .ent-logo { display: block; line-height: 0; }
+        .ent-logo-img { height: 46px; width: auto; display: block; }
+        .ent-nav { display: flex; align-items: center; gap: 28px; }
+        .ent-nav a { color: #fff; font-size: 14.5px; font-weight: 500; }
+        .ent-nav a:hover { color: var(--primary-orange); }
+        .ent-nav .btn { padding: 10px 22px; font-size: 14px; }
+        .ent-burger { display: none; background: none; border: none; color: #fff; font-size: 26px; cursor: pointer; }
+
+        /* ── Shared section rythm ── */
+        .ent-eyebrow {
+            display: inline-block;
+            font-size: 12.5px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
+            color: var(--primary-orange); margin-bottom: 18px;
+        }
+        .ent-section { padding: 100px 0; }
+        .ent-section h2 {
+            font-size: 40px; font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 16px;
+        }
+        .ent-section h2 span { color: var(--primary-orange); }
+        .ent-lead { font-size: 18px; color: var(--text-gray); max-width: 640px; }
+        .ent-center { text-align: center; }
+        .ent-center .ent-lead { margin-left: auto; margin-right: auto; }
+
+        /* ── Hero ── */
+        .ent-hero {
+            position: relative; overflow: hidden;
+            padding: 190px 0 110px;
+            background:
+                radial-gradient(1100px 520px at 70% -10%, rgba(255,177,86,0.14), transparent 60%),
+                radial-gradient(800px 500px at 0% 20%, rgba(255,177,86,0.05), transparent 55%),
+                var(--bg-dark);
+        }
+        .ent-hero::before {
+            content: ""; position: absolute; inset: 0; z-index: 0;
+            background-image:
+                linear-gradient(rgba(255,177,86,0.045) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,177,86,0.045) 1px, transparent 1px);
+            background-size: 46px 46px;
+            -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 100%);
+                    mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 100%);
+        }
+        .ent-hero .container { position: relative; z-index: 1; max-width: 900px; text-align: center; }
+        .ent-hero h1 {
+            font-size: 58px; font-weight: 700; color: #fff; line-height: 1.08;
+            letter-spacing: -1.5px; margin-bottom: 22px;
+        }
+        .ent-hero h1 span { color: var(--primary-orange); }
+        .ent-hero p { font-size: 20px; color: var(--text-light); max-width: 640px; margin: 0 auto 36px; }
+        .ent-cta-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .btn-ghost {
+            background: transparent; color: #fff; border: 1px solid var(--border-dark);
+        }
+        .btn-ghost:hover { border-color: var(--primary-orange); color: var(--primary-orange); transform: translateY(-2px); }
+        .ent-trust {
+            margin-top: 34px; font-size: 13.5px; color: var(--text-gray);
+            display: flex; gap: 26px; justify-content: center; flex-wrap: wrap;
+        }
+        .ent-trust b { color: #fff; font-weight: 600; }
+
+        /* ── Cards / grids ── */
+        .ent-grid { display: grid; gap: 22px; margin-top: 54px; }
+        .ent-grid.cols-3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+        .ent-grid.cols-4 { grid-template-columns: repeat(auto-fit, minmax(238px, 1fr)); }
+        .ent-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-dark);
+            border-radius: 16px; padding: 32px 28px;
+            transition: transform .3s ease, border-color .3s ease;
+        }
+        .ent-card:hover { transform: translateY(-5px); border-color: rgba(255,177,86,0.5); }
+        .ent-card .ico {
+            width: 52px; height: 52px; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(255,177,86,0.12); color: var(--primary-orange);
+            font-size: 24px; margin-bottom: 20px;
+        }
+        .ent-card h3 { color: #fff; font-size: 20px; font-weight: 600; margin-bottom: 10px; }
+        .ent-card p { font-size: 15px; color: var(--text-gray); line-height: 1.65; }
+
+        /* ── Méthode (steps) ── */
+        .ent-steps { counter-reset: step; }
+        .ent-step .num {
+            font-size: 14px; font-weight: 700; color: var(--primary-orange);
+            letter-spacing: 1px; margin-bottom: 14px;
+        }
+
+        /* ── Offres ── */
+        .ent-offer {
+            display: flex; flex-direction: column; text-align: left;
+            position: relative; overflow: hidden;
+            padding: 30px 26px 28px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent 40%), var(--bg-card);
+            transform: translateY(-5px);
+            border-color: rgba(255,177,86,0.5);
+        }
+        .ent-offer:hover {
+            transform: none;
+            border-color: var(--border-dark);
+        }
+        .ent-offer::before {
+            content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary-orange), transparent);
+            transform: scaleX(1); transition: transform .35s ease;
+        }
+        .ent-offer:hover::before { transform: scaleX(0); }
+        .ent-offer .tag {
+            align-self: flex-start;
+            font-size: 11px; letter-spacing: 1px; text-transform: uppercase; font-weight: 600;
+            color: var(--primary-orange);
+            background: rgba(255,177,86,0.1); border: 1px solid rgba(255,177,86,0.22);
+            padding: 5px 12px; border-radius: 50px; margin-bottom: 18px;
+        }
+        .ent-offer h3 { font-size: 19px; color: #fff; margin-bottom: 14px; }
+        .ent-price {
+            display: flex; align-items: baseline; flex-wrap: wrap; gap: 7px;
+            margin: 0 0 22px; padding-bottom: 22px; border-bottom: 1px solid var(--border-dark);
+            font-size: 13.5px; color: var(--text-gray);
+        }
+        .ent-price b { color: #fff; font-size: 36px; font-weight: 700; letter-spacing: -1.5px; line-height: 1; }
+        .ent-offer ul { list-style: none; margin: 0 0 28px; padding: 0; }
+        .ent-offer li {
+            font-size: 14px; color: var(--text-light); line-height: 1.45;
+            padding: 9px 0 9px 30px; position: relative;
+        }
+        .ent-offer li::before {
+            content: "✓"; position: absolute; left: 0; top: 8px;
+            width: 19px; height: 19px; border-radius: 50%;
+            background: rgba(255,177,86,0.14); color: var(--primary-orange);
+            font-size: 11px; font-weight: 700;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .ent-offer.featured {
+            border-color: rgba(255,177,86,0.55);
+            background: linear-gradient(180deg, rgba(255,177,86,0.08), var(--bg-card) 55%);
+            box-shadow: 0 24px 60px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,177,86,0.18) inset;
+        }
+        .ent-offer.featured::before { transform: scaleX(1); }
+        .ent-offer.featured h3 { color: var(--primary-orange); }
+        .ent-offer .badge {
+            position: absolute; top: 18px; right: 18px;
+            background: var(--primary-orange); color: var(--bg-dark);
+            font-size: 10.5px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase;
+            padding: 5px 11px; border-radius: 50px;
+            box-shadow: 0 6px 18px rgba(255,177,86,0.35);
+        }
+        .ent-offer .btn { margin-top: auto; text-align: center; width: 100%; }
+        .ent-note { text-align: center; margin-top: 30px; font-size: 14px; color: var(--text-gray); }
+
+        /* ── Marque blanche ── */
+        .ent-white { background: #0d0d0d; }
+        .ent-split { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .ent-feature-list { list-style: none; padding: 0; margin: 26px 0 0; }
+        .ent-feature-list li { padding: 14px 0; border-top: 1px solid var(--border-dark); display: flex; gap: 14px; }
+        .ent-feature-list li:first-child { border-top: none; }
+        .ent-feature-list .fi { color: var(--primary-orange); font-size: 20px; flex-shrink: 0; }
+        .ent-feature-list b { color: #fff; display: block; margin-bottom: 2px; font-weight: 600; }
+        .ent-feature-list span { font-size: 14.5px; color: var(--text-gray); }
+        .ent-mock {
+            background: var(--bg-card); border: 1px solid var(--border-dark); border-radius: 16px;
+            padding: 26px; box-shadow: 0 30px 70px rgba(0,0,0,0.5);
+        }
+        .ent-mock-bar { display: flex; gap: 7px; margin-bottom: 20px; }
+        .ent-mock-bar i { width: 11px; height: 11px; border-radius: 50%; display: block; }
+        .ent-mock-row { display: flex; align-items: center; justify-content: space-between; padding: 13px 0; border-bottom: 1px solid var(--border-dark); }
+        .ent-mock-row:last-child { border-bottom: none; }
+        .ent-mock-row .k { color: var(--text-light); font-size: 14px; }
+        .ent-mock-row .v { color: var(--primary-orange); font-weight: 600; font-size: 14px; }
+        .ent-mock-row .up { color: #22c55e; font-weight: 600; font-size: 13px; }
+
+        /* ── Preuve ── */
+        .ent-sectors { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin: 46px auto 30px; max-width: 840px; }
+        .ent-chip {
+            display: inline-flex; align-items: center; gap: 9px;
+            background: var(--bg-card); border: 1px solid var(--border-dark);
+            border-radius: 50px; padding: 10px 18px; font-size: 14px; color: var(--text-light);
+            transition: border-color .3s ease;
+        }
+        .ent-chip:hover { border-color: rgba(255,177,86,0.5); }
+        .ent-chip b { color: var(--primary-orange); font-weight: 700; }
+        .ent-kw { font-size: 14.5px; color: var(--text-gray); max-width: 720px; margin: 0 auto 30px; }
+        .ent-kw span { color: var(--text-light); background: rgba(255,177,86,0.08); border-radius: 6px; padding: 3px 9px; margin: 3px; display: inline-block; }
+
+        /* ── Stats ── */
+        .ent-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap: 24px; margin-top: 54px; }
+        .ent-stat { text-align: center; }
+        .ent-stat .big { font-size: 46px; font-weight: 700; color: var(--primary-orange); line-height: 1; }
+        .ent-stat .lbl { font-size: 14px; color: var(--text-gray); margin-top: 10px; }
+
+        /* ── FAQ ── */
+        .ent-faq { max-width: 760px; margin: 44px auto 0; }
+        .ent-faq details {
+            border: 1px solid var(--border-dark); border-radius: 12px;
+            padding: 0 22px; margin-bottom: 12px; background: var(--bg-card);
+        }
+        .ent-faq summary {
+            list-style: none; cursor: pointer; padding: 20px 0;
+            color: #fff; font-weight: 500; font-size: 16.5px;
+            display: flex; justify-content: space-between; align-items: center; gap: 14px;
+        }
+        .ent-faq summary::-webkit-details-marker { display: none; }
+        .ent-faq summary::after { content: "+"; color: var(--primary-orange); font-size: 24px; font-weight: 300; transition: transform .25s; }
+        .ent-faq details[open] summary::after { transform: rotate(45deg); }
+        .ent-faq p { color: var(--text-gray); font-size: 15px; line-height: 1.7; padding: 0 0 22px; }
+
+        /* ── CTA band ── */
+        .ent-cta {
+            text-align: center; padding: 90px 0;
+            background: radial-gradient(700px 340px at 50% 0%, rgba(255,177,86,0.16), transparent 65%), var(--bg-dark);
+        }
+        .ent-cta h2 { font-size: 40px; color: #fff; font-weight: 700; margin-bottom: 16px; }
+        .ent-cta p { font-size: 18px; color: var(--text-gray); max-width: 560px; margin: 0 auto 32px; }
+
+        /* ── Reveal ── */
+        .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+        .reveal.in { opacity: 1; transform: none; }
+
+        @media (max-width: 860px) {
+            .ent-nav {
+                display: none; position: absolute; top: 100%; left: 0; right: 0;
+                flex-direction: column; align-items: stretch; gap: 0;
+                background: rgba(10,10,10,0.97); border-bottom: 1px solid var(--border-dark);
+                padding: 8px 20px 18px;
+            }
+            .ent-nav.open { display: flex; }
+            .ent-nav a { padding: 14px 0; border-top: 1px solid var(--border-dark); }
+            .ent-nav a:first-child { border-top: none; }
+            .ent-nav .btn { margin-top: 12px; text-align: center; }
+            .ent-burger { display: block; }
+            .ent-hero h1 { font-size: 40px; }
+            .ent-hero p { font-size: 17px; }
+            .ent-section h2 { font-size: 30px; }
+            .ent-section { padding: 70px 0; }
+            .ent-split { grid-template-columns: 1fr; gap: 40px; }
+        }
     </style>
 </head>
 <body>
-    <p>Redirection vers <a href="https://daelia-digital.fr/">daelia-digital.fr</a>…</p>
+
+    <!-- ── Header ── -->
+    <header class="ent-header">
+        <div class="container">
+            <a href="index.html" class="ent-logo"><img src="webprime.png" alt="WebPrime" class="ent-logo-img"></a>
+            <nav class="ent-nav" id="entNav">
+                <a href="#preuve">Preuves</a>
+                <a href="#methode">Méthode</a>
+                <a href="#offres">Offres</a>
+                <a href="#marque-blanche">Marque blanche</a>
+                <a href="#faq">FAQ</a>
+                <a href="partenaire.html" class="btn btn-primary">Devenir partenaire</a>
+            </nav>
+            <button class="ent-burger" id="entBurger" aria-label="Menu">☰</button>
+        </div>
+    </header>
+
+    <!-- ── Hero ── -->
+    <section class="ent-hero">
+        <div class="container">
+            <span class="ent-eyebrow">Référencement en marque blanche · Agences</span>
+            <h1>On met les sites de vos clients<br><span>en 1ère page de Google.</span></h1>
+            <p>Vous créez les sites, on les fait remonter. WebPrime référence les sites de vos clients en marque blanche — vous livrez des résultats Google sous <strong style="color:#fff;">votre nom</strong>, sans embaucher ni vous former.</p>
+            <div class="ent-cta-row">
+                <a href="partenaire.html" class="btn btn-primary">Devenir partenaire</a>
+                <a href="#preuve" class="btn btn-ghost">Voir les 300 preuves</a>
+            </div>
+            <div class="ent-trust">
+                <span><b>300+ sites</b> déjà en 1ère page</span>
+                <span><b>100 %</b> à votre marque</span>
+                <span><b>0</b> recrutement à faire</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Constat ── -->
+    <section class="ent-section" id="constat">
+        <div class="container ent-center">
+            <span class="ent-eyebrow reveal">Le constat</span>
+            <h2 class="reveal">Vos clients veulent Google.<br><span>Le SEO n'est pas votre métier.</span></h2>
+            <p class="ent-lead reveal">Vous livrez de superbes sites… puis le client demande « pourquoi je n'apparais pas sur Google ? ». Recruter un expert SEO coûte cher, le sous-traiter au hasard vous expose. WebPrime devient votre pôle référencement, sans que vos clients ne le sachent jamais.</p>
+            <div class="ent-grid cols-3">
+                <div class="ent-card reveal">
+                    <div class="ico">🎯</div>
+                    <h3>Vous gardez le client</h3>
+                    <p>Toute la relation reste chez vous. Nous n'apparaissons jamais : ni logo, ni email, ni contact. Vous restez l'unique interlocuteur.</p>
+                </div>
+                <div class="ent-card reveal">
+                    <div class="ico">📈</div>
+                    <h3>Vous montez en gamme</h3>
+                    <p>Ajoutez le référencement à votre catalogue et facturez un abonnement mensuel récurrent, sans embaucher ni vous former.</p>
+                </div>
+                <div class="ent-card reveal">
+                    <div class="ico">⚙️</div>
+                    <h3>On fait le travail</h3>
+                    <p>Audit, optimisation technique, contenu, Google Business, suivi des positions. Vous transmettez le site, on s'occupe du reste.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Preuve ── -->
+    <section class="ent-section" id="preuve">
+        <div class="container ent-center">
+            <span class="ent-eyebrow reveal">La preuve, pas des promesses</span>
+            <h2 class="reveal">300+ sites de clients déjà en <span>1ère page Google</span></h2>
+            <p class="ent-lead reveal">Des captures vidéo réelles de recherches Google, secteur par secteur, sur les mots-clés les plus recherchés. Ce qu'on obtient pour eux, on l'obtiendra pour vos clients.</p>
+            <div class="ent-sectors reveal">
+                <span class="ent-chip">Couverture et Toiture <b>49</b></span>
+                <span class="ent-chip">Assainissement et Canalisation <b>36</b></span>
+                <span class="ent-chip">Peinture et Façade <b>20</b></span>
+                <span class="ent-chip">Cordiste et Travaux en hauteur <b>19</b></span>
+                <span class="ent-chip">Paysagiste et Espaces verts <b>19</b></span>
+                <span class="ent-chip">Plomberie et Sanitaire <b>16</b></span>
+                <span class="ent-chip">+ 9 autres secteurs</span>
+            </div>
+            <p class="ent-kw reveal">
+                <span>Plombier débouchage Créteil 94</span>
+                <span>Couvreur Val-d'Oise nettoyage toiture</span>
+                <span>Cordiste Nice 06</span>
+                <span>Assainissement Île-de-France</span>
+            </p>
+            <div class="ent-cta-row reveal">
+                <a href="https://daelia-digital.fr/tarif-premiere-page-google/" target="_blank" rel="noopener" class="btn btn-primary">Voir les 300 preuves en vidéo →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Méthode ── -->
+    <section class="ent-section ent-white" id="methode">
+        <div class="container ent-center">
+            <span class="ent-eyebrow reveal">La méthode</span>
+            <h2 class="reveal">Trois étapes, <span>zéro friction</span></h2>
+            <div class="ent-grid cols-3 ent-steps">
+                <div class="ent-card ent-step reveal">
+                    <div class="num">01</div>
+                    <h3>Vous nous confiez le site</h3>
+                    <p>Vous nous envoyez le site du client (le vôtre ou un existant) et son objectif : le département à cibler et son secteur d'activité.</p>
+                </div>
+                <div class="ent-card ent-step reveal">
+                    <div class="num">02</div>
+                    <h3>On optimise et on référence</h3>
+                    <p>Audit complet, corrections techniques, contenu optimisé, fiche Google Business, indexation et suivi mensuel des positions.</p>
+                </div>
+                <div class="ent-card ent-step reveal">
+                    <div class="num">03</div>
+                    <h3>Vous livrez sous votre marque</h3>
+                    <p>Vous recevez un rapport clair à votre logo. Vous le présentez au client comme votre travail. On reste dans l'ombre.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Offres ── -->
+    <section class="ent-section" id="offres">
+        <div class="container ent-center">
+            <span class="ent-eyebrow reveal">Tarifs</span>
+            <h2 class="reveal">Le prix public, <span>et votre marge</span></h2>
+            <p class="ent-lead reveal">Le particulier paie le prix public. Vous, en tant qu'agence, vous référencez à tarif dégressif dès 3 sites — chaque site en 1ère page Google <strong style="color:#fff;">sur son département</strong>. La marge est pour vous.</p>
+            <div class="ent-grid cols-4">
+                <div class="ent-card ent-offer reveal">
+                    <span class="tag">Prix public · Particulier</span>
+                    <h3>Particulier</h3>
+                    <div class="ent-price"><b>159€</b> / mois · 1 site</div>
+                    <ul>
+                        <li>Référencement 1ère page Google</li>
+                        <li>Sur le département choisi</li>
+                        <li>Mots-clés les plus recherchés du secteur</li>
+                        <li>Fiche Google Business optimisée</li>
+                        <li>Suivi mensuel</li>
+                        <li>Sans engagement</li>
+                    </ul>
+                    <a href="https://daelia-digital.fr/tarif-premiere-page-google/" target="_blank" rel="noopener" class="btn btn-primary">Voir l'offre publique</a>
+                </div>
+                <div class="ent-card ent-offer reveal">
+                    <span class="tag">Agence · dès 3 sites</span>
+                    <h3>3 sites</h3>
+                    <div class="ent-price"><b>79€</b> / mois · par site</div>
+                    <ul>
+                        <li>Tout le référencement 1ère page Google</li>
+                        <li>Chaque site sur son département</li>
+                        <li>Mots-clés les plus recherchés du secteur</li>
+                        <li>Fiche Google Business optimisée</li>
+                        <li>Rapport mensuel en marque blanche</li>
+                        <li>Sans engagement</li>
+                    </ul>
+                    <a href="partenaire.html" class="btn btn-primary">Demander l'accès</a>
+                </div>
+                <div class="ent-card ent-offer reveal">
+                    <span class="tag">Agence · dès 5 sites</span>
+                    <h3>5 sites</h3>
+                    <div class="ent-price"><b>59€</b> / mois · par site</div>
+                    <ul>
+                        <li>Tout le référencement 1ère page Google</li>
+                        <li>Chaque site sur son département</li>
+                        <li>Mots-clés les plus recherchés du secteur</li>
+                        <li>Fiche Google Business optimisée</li>
+                        <li>Rapport mensuel en marque blanche</li>
+                        <li>Sans engagement</li>
+                    </ul>
+                    <a href="partenaire.html" class="btn btn-primary">Demander l'accès</a>
+                </div>
+                <div class="ent-card ent-offer reveal">
+                    <span class="tag">Agence · dès 10 sites</span>
+                    <h3>10 sites et +</h3>
+                    <div class="ent-price"><b>49€</b> / mois · par site</div>
+                    <ul>
+                        <li>Tout le référencement 1ère page Google</li>
+                        <li>Chaque site sur son département</li>
+                        <li>Mots-clés les plus recherchés du secteur</li>
+                        <li>Fiche Google Business optimisée</li>
+                        <li>Tableau de bord multi-clients</li>
+                        <li>Sans engagement</li>
+                    </ul>
+                    <a href="partenaire.html" class="btn btn-primary">Demander l'accès</a>
+                </div>
+            </div>
+            <p class="ent-note">Le particulier paie le prix public <b>159€/mois</b> — vous, agence, référencez dès <b>79€</b> (3 sites), <b>59€</b> (5 sites) ou <b>49€</b> (10 sites). La marge est pour vous.<br><span style="color:var(--text-gray);font-size:13px;">Les sites e-commerce ne sont pas concernés par ces offres.</span></p>
+        </div>
+    </section>
+
+    <!-- ── Marque blanche ── -->
+    <section class="ent-section ent-white" id="marque-blanche">
+        <div class="container">
+            <div class="ent-split">
+                <div>
+                    <span class="ent-eyebrow reveal">Marque blanche</span>
+                    <h2 class="reveal">Vos clients ne verront <span>que vous</span></h2>
+                    <p class="ent-lead reveal">Chaque livrable porte votre identité. WebPrime n'apparaît nulle part — vous restez l'agence experte aux yeux de vos clients.</p>
+                    <ul class="ent-feature-list reveal">
+                        <li><span class="fi">◆</span><div><b>Rapports à votre logo</b><span>PDF de suivi mensuel personnalisés à vos couleurs et votre nom.</span></div></li>
+                        <li><span class="fi">◆</span><div><b>Aucun contact partagé</b><span>Nous ne communiquons jamais directement avec vos clients.</span></div></li>
+                        <li><span class="fi">◆</span><div><b>Tableau de bord multi-clients</b><span>Suivez les positions de tous vos clients au même endroit.</span></div></li>
+                        <li><span class="fi">◆</span><div><b>Délais tenus</b><span>Un interlocuteur dédié et des points réguliers pour votre agence.</span></div></li>
+                    </ul>
+                </div>
+                <div class="ent-mock reveal">
+                    <div class="ent-mock-bar"><i style="background:#ff5f56"></i><i style="background:#ffbd2e"></i><i style="background:#27c93f"></i></div>
+                    <div class="ent-mock-row"><span class="k">📊 Rapport — Votre Agence</span><span class="v">Juillet</span></div>
+                    <div class="ent-mock-row"><span class="k">« plombier lyon »</span><span class="up">▲ #14 → #3</span></div>
+                    <div class="ent-mock-row"><span class="k">« dépannage urgent »</span><span class="up">▲ #22 → #6</span></div>
+                    <div class="ent-mock-row"><span class="k">Trafic organique</span><span class="up">▲ +182 %</span></div>
+                    <div class="ent-mock-row"><span class="k">Fiche Google Business</span><span class="v">Vérifiée</span></div>
+                    <div class="ent-mock-row"><span class="k">Prochain point</span><span class="v">05/08</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Stats ── -->
+    <section class="ent-section" id="resultats">
+        <div class="container ent-center">
+            <span class="ent-eyebrow reveal">En chiffres</span>
+            <h2 class="reveal">Un pôle SEO <span>clé en main</span></h2>
+            <div class="ent-stats">
+                <div class="ent-stat reveal"><div class="big">100 %</div><div class="lbl">marque blanche</div></div>
+                <div class="ent-stat reveal"><div class="big">48 h</div><div class="lbl">pour démarrer un site</div></div>
+                <div class="ent-stat reveal"><div class="big">0 €</div><div class="lbl">de recrutement</div></div>
+                <div class="ent-stat reveal"><div class="big">1</div><div class="lbl">interlocuteur dédié</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── FAQ ── -->
+    <section class="ent-section ent-white" id="faq">
+        <div class="container ent-center">
+            <span class="ent-eyebrow reveal">Questions fréquentes</span>
+            <h2 class="reveal">Ce que les agences <span>nous demandent</span></h2>
+            <div class="ent-faq">
+                <details class="reveal"><summary>Mes clients sauront-ils que vous existez ?</summary><p>Non. Tout est en marque blanche : rapports à votre logo, aucun contact partagé, aucune mention de WebPrime. Vous restez l'unique interlocuteur.</p></details>
+                <details class="reveal"><summary>Faut-il un volume minimum de clients ?</summary><p>Non, vous pouvez démarrer avec un seul site à 99€/mois. Plus vous confiez de sites, plus le prix par site baisse : 79€/mois dès 3 sites, 59€/mois dès 5 sites.</p></details>
+                <details class="reveal"><summary>Comment fonctionne le référencement par département ?</summary><p>Chaque site est positionné en 1ère page Google sur le département que vous ciblez, avec les mots-clés les plus recherchés du secteur du client (ex. « plombier 94 », « couvreur Val-d'Oise »). Un site = un département.</p></details>
+                <details class="reveal"><summary>Référencez-vous des sites que nous n'avons pas créés ?</summary><p>Oui. Que le site vienne de vous ou existe déjà (WordPress, site codé…), nous l'auditons et le référençons.</p></details>
+                <details class="reveal"><summary>Les sites e-commerce sont-ils concernés ?</summary><p>Non. Nos offres de référencement couvrent les sites vitrines, locaux et de réservation. Les sites e-commerce ne font pas partie de ces offres.</p></details>
+                <details class="reveal"><summary>Comment je facture mon client ?</summary><p>Librement. Vous payez le tarif partenaire et fixez votre prix de vente. La marge vous appartient entièrement.</p></details>
+                <details class="reveal"><summary>Quels sont les délais de résultat ?</summary><p>Le référencement local donne des signaux dès les premières semaines ; le SEO national se construit sur 3 à 6 mois. Vous suivez la progression chaque mois.</p></details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── CTA final ── -->
+    <section class="ent-cta">
+        <div class="container">
+            <h2 class="reveal">Prêt à référencer vos clients ?</h2>
+            <p class="reveal">Rejoignez le programme partenaire et ajoutez le référencement à votre offre — sans embaucher, sans vous former.</p>
+            <div class="ent-cta-row reveal">
+                <a href="partenaire.html" class="btn btn-primary">Devenir partenaire</a>
+                <a href="mailto:contact@webprime.fr" class="btn btn-ghost">contact@webprime.fr</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Footer ── -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="webprime.png" alt="WebPrime" style="height:52px;width:auto;margin-bottom:16px;">
+                    <p>Référencement en marque blanche pour agences web, studios de création et développeurs, partout en France.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Le service</h4>
+                    <ul>
+                        <li><a href="#methode">La méthode</a></li>
+                        <li><a href="#offres">Offres revendeur</a></li>
+                        <li><a href="#marque-blanche">Marque blanche</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:contact@webprime.fr">contact@webprime.fr</a></li>
+                        <li><a href="partenaire.html">Devenir partenaire</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Suivez-nous</h4>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/webprime.es" target="_blank" aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#E4405F"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                        <a href="https://www.tiktok.com/@kazeko_fight" target="_blank" aria-label="TikTok">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+                        </a>
+                        <a href="https://snapchat.com/t/jnB2CTpk" target="_blank" aria-label="Snapchat">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#FFFC00"><path d="M5.829 4.533c-.6 1.344-.363 3.752-.267 5.436-.648.359-1.48-.271-1.951-.271-.49 0-1.075.322-1.167.802-.066.346.089.85 1.201 1.289.43.17 1.453.37 1.69.928.333.784-1.71 4.403-4.918 4.931-.251.041-.43.265-.416.519.056.975 2.242 1.357 3.211 1.507.099.134.179.7.306 1.131.057.193.204.424.582.424.493 0 1.312-.38 2.738-.144 1.398.233 2.712 2.215 5.235 2.215 2.345 0 3.744-1.991 5.09-2.215.779-.129 1.448-.088 2.196.058.515.101.977.157 1.124-.349.129-.437.208-.992.305-1.123.96-.149 3.156-.53 3.211-1.505.014-.254-.165-.477-.416-.519-3.154-.52-5.259-4.128-4.918-4.931.236-.557 1.252-.755 1.69-.928.814-.321 1.222-.716 1.213-1.173-.011-.585-.715-.934-1.233-.934-.527 0-1.284.624-1.897.286.096-1.698.332-4.095-.267-5.438-1.135-2.543-3.66-3.829-6.184-3.829-2.508 0-5.014 1.268-6.158 3.833z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; WebPrime 2026 - Tous droits réservés</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu : le burger déroule la navigation
+        var entNav = document.getElementById('entNav');
+        document.getElementById('entBurger').addEventListener('click', function () {
+            entNav.classList.toggle('open');
+        });
+        entNav.querySelectorAll('a').forEach(function (a) {
+            a.addEventListener('click', function () { entNav.classList.remove('open'); });
+        });
+
+        // Reveal on scroll
+        var obs = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+            });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach(function (el) { obs.observe(el); });
+    </script>
 </body>
 </html>
