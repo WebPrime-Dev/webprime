@@ -222,8 +222,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="departements">Départements / zones ciblés</label>
-                            <input type="text" id="departements" name="departements" placeholder="Ex : 75, 91, 94…">
+                            <label for="secteur">Quel secteur d'activité de vos clients ciblez-vous ?</label>
+                            <input type="text" id="secteur" name="secteur" placeholder="Ex : plomberie, couverture, coiffure, restaurant…">
                         </div>
 
                         <div class="form-group">
@@ -352,7 +352,7 @@
                 payload.append('Contact', (prenom + ' ' + nom).trim());
                 payload.append('Email', fd.get('email') || '');
                 payload.append('Téléphone', fd.get('telephone') || '');
-                if (fd.get('departements')) payload.append('Départements ciblés', fd.get('departements'));
+                if (fd.get('secteur')) payload.append('Secteur d\'activité ciblé', fd.get('secteur'));
                 if (fd.get('message')) payload.append('Message', fd.get('message'));
                 payload.append('_subject', 'Nouvelle demande partenaire WebPrime — ' + (agence || (prenom + ' ' + nom)));
                 payload.append('_template', 'table');
